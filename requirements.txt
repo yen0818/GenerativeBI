@@ -1,0 +1,13 @@
+langchain==0.3.2 
+langchain-community==0.3.1
+langchain-core==0.3.8
+langchain-openai==0.2.1
+SQLAlchemy==2.0.25
+faiss-cpu==1.8.0
+openpyxl==3.1.5
+mysql-connector-python==9.0.0
+streamlit==1.39.0
+langchain_experimental==0.3.2
+loguru==0.7.2
+plotly==5.24.1
+pydantic==2.9.2

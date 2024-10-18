@@ -1,0 +1,64 @@
+{
+    "charts": {
+        "bar_chart": {
+            "code": "import pandas as pd;import streamlit as st;import plotly.express as px;df_grouped = df.groupby('Category')['Sales'].sum().reset_index();fig = px.bar(df_grouped, x='Category', y='Sales', title='Sales by Category');st.plotly_chart(fig);",
+            "instructions": "To generate a bar chart, ensure that the dataset contains categorical and numerical columns. You can group the data by a categorical column and aggregate the numerical column to create the bar chart. If data processing is required, you should import the necessary libraries and perform the required transformations before generating the bar chart.",
+            "description": "Bar charts are useful for comparing data across different categories or groups. The length of each bar represents the value of the data, making it easy to visualize the differences between categories. You can customize the appearance of the bar chart by changing the color, orientation, and other properties."
+        },
+        "line_chart": {
+            "code": "import pandas as pd;import streamlit as st;import plotly.express as px;df_sorted = df.sort_values('Date');fig = px.line(df_sorted, x='Date', y='Value', title='Trend of Value Over Time');st.plotly_chart(fig);",
+            "instructions": "To generate a line chart, ensure that the dataset contains a date or time column and a numerical value column. Sort the data by the date column, then use Plotly Express to create the line chart and display it with Streamlit.",
+            "description": "Line charts are ideal for visualizing trends over time. They help in identifying patterns such as increases, decreases, or cyclical behavior in the data. This makes them suitable for time-series analysis."
+        },
+        "scatter_plot": {
+            "code": "import pandas as pd;import streamlit as st;import plotly.express as px;fig = px.scatter(df, x='Height', y='Weight', title='Height vs Weight', trendline='ols');st.plotly_chart(fig);",
+            "instructions": "To generate a scatter plot, ensure that the dataset contains two numerical columns. Use Plotly Express to create the scatter plot, optionally adding a trendline, and display it using Streamlit.",
+            "description": "Scatter plots are useful for exploring the relationship between two numerical variables. They can help identify correlations, clusters, and outliers within the data."
+        },
+       "histogram": {
+            "code": "import pandas as pd;import streamlit as st;import plotly.express as px;fig = px.histogram(df, x='Age', nbins=20, title='Age Distribution');st.plotly_chart(fig);",
+            "instructions": "To generate a histogram, ensure that the dataset contains a numerical column. Use Plotly Express to create the histogram, specifying the number of bins if necessary, and display it with Streamlit.",
+            "description": "Histograms are effective for understanding the distribution of a single numerical variable. They show the frequency of data points within specified ranges, helping to identify patterns such as skewness or modality."
+        },
+        "pie_chart": {
+            "code": "import pandas as pd;import streamlit as st;import plotly.express as px;df_grouped = df.groupby('Company')['Market Share'].sum().reset_index();fig = px.pie(df_grouped, names='Company', values='Market Share', title='Market Share by Company');st.plotly_chart(fig);",
+            "instructions": "To generate a pie chart, ensure that the dataset contains categorical and numerical columns representing parts of a whole. Aggregate the numerical values by category, then use Plotly Express to create the pie chart and display it with Streamlit.",
+            "description": "Pie charts are useful for displaying the proportion of categories relative to the entire dataset. Each slice represents a category's contribution, making it easy to compare percentage distributions."
+        },
+        "box_plot": {
+            "code": "import pandas as pd;import streamlit as st;import plotly.express as px;df_selected = df[[\"A\", \"B\", \"C\"]];fig = px.box(df_selected, y=[\"A\", \"B\", \"C\"]);st.plotly_chart(fig);",
+            "instructions": "To generate a box plot, ensure that the dataset contains multiple numerical columns. Select the columns you want to visualize and use Plotly Express to create the box plot. Streamlit will render the chart interactively.",
+            "description": "Box plots are useful for comparing the distribution of multiple numerical variables. They display the median, quartiles, and potential outliers, making it easy to understand the spread and skewness of the data."
+        },
+        "area_chart": {
+            "code": "import pandas as pd;import streamlit as st;import plotly.express as px;df_sorted = df.sort_values('Year');fig = px.area(df_sorted, x='Year', y='Sales', title='Sales Over Years');st.plotly_chart(fig);",
+            "instructions": "To generate an area chart, ensure that the dataset contains a time-related column and a numerical value column. Sort the data by the time column, then use Plotly Express to create the area chart and display it with Streamlit.",
+            "description": "Area charts emphasize the magnitude of change over time by filling the area below the line. They are useful for visualizing cumulative totals and trends, highlighting the overall volume of change."
+        },
+        "heatmap": {
+            "code": "import pandas as pd;import streamlit as st;import plotly.express as px;corr = df.corr();fig = px.imshow(corr, text_auto=True, title='Correlation Heatmap');st.plotly_chart(fig);",
+            "instructions": "To generate a heatmap of the correlation matrix, ensure that the dataset contains only numerical columns. Calculate the correlation matrix using Pandas, then use Plotly Express to create the heatmap and display it with Streamlit.",
+            "description": "Heatmaps are effective for visualizing the correlation between multiple variables. The color intensity represents the strength of the correlation, making it easier to identify strong or weak relationships between pairs of variables."
+        }
+    },
+    "tables": {
+        "head": {
+            "description": "Display first 3 rows of the dataset",
+            "code": "import pandas as pd;import streamlit as st;df_top3 = df.head(3);st.write('The first 3 rows of the dataset');st.table(df_top3);"
+        },
+        "tail": {
+            "description": "Display last 3 rows of the dataset",
+            "code": "import pandas as pd;import streamlit as st;df_bottom3 = df.tail(3);st.write('The last 3 rows of the dataset');st.table(df_bottom3);"
+        },
+        "describe": {
+            "description": "Display summary statistics of the dataset",
+            "code": "import pandas as pd;import streamlit as st;st.write('Summary statistics of the dataset');st.table(df.describe());"
+        },
+        "info": {
+            "description": "Display information about the dataset",
+            "code": "import pandas as pd;import streamlit as st;st.write('Information about the dataset');st.table(df.info());"
+        }
+        
+    }
+  }
+  
